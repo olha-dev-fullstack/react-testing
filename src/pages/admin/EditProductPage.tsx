@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 import ProductForm from "../../components/ProductForm";
 import useProduct from "../../hooks/useProduct";
+import Label from "../../components/Label";
 
 const EditProductPage = withAuthenticationRequired(() => {
   const navigate = useNavigate();
@@ -20,7 +21,9 @@ const EditProductPage = withAuthenticationRequired(() => {
 
   return (
     <div>
-      <Heading mb="4">Edit Product</Heading>
+      <Heading mb="4">
+        <Label labelId="edit_product" />
+      </Heading>
       <ProductForm
         product={product}
         onSubmit={async (product) => {

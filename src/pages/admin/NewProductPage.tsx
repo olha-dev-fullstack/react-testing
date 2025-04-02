@@ -2,6 +2,7 @@ import { withAuthenticationRequired } from "@auth0/auth0-react";
 import { Heading } from "@radix-ui/themes";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Label from "../../components/Label";
 import ProductForm from "../../components/ProductForm";
 
 const NewProductPage = withAuthenticationRequired(
@@ -10,7 +11,9 @@ const NewProductPage = withAuthenticationRequired(
 
     return (
       <div>
-        <Heading mb="4">New Product</Heading>
+        <Heading mb="4">
+          <Label labelId="new_product" />
+        </Heading>
         <ProductForm
           onSubmit={async (product) => {
             await axios.post("/products", product);
